@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('participantes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('apellido');
             $table->string('email')->unique();
             $table->string('telefono');
-            $table->string('codigo_qr')->nullable();
+            $table->string('codigo_participante')->unique();
             $table->string('carnet')->nullable();
             $table->timestamps();
         });

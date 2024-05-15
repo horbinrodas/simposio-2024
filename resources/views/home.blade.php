@@ -22,9 +22,10 @@
             <div class="links lg:block hidden w-1/6 md:w-4/6">
                 <ul class="flex menu text-white-800 items-center justify-center gap-5">
                     <li><a href="#" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
-                    <li><a href="#" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Inscribirse</a></li><br>
+                    <li><a href="{{url('inscribirse')}}" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Inscribirse</a></li><br>
                     <li><a href="#"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
                     <li><a href="#"class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
+                    <li><a href="#"class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
                     
                    </ul>
             </div>
@@ -34,9 +35,10 @@
 
                 <ul class="mobile-links hidden w-full absolute z-50 left-0 text-center bg-sky-900">
                     <li><a href="#" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
-                    <li><a href="#" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Incribirse</a></li><br>
+                    <li><a href="{{url('inscribirse')}}" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Incribirse</a></li><br>
                     <li><a href="#"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
                     <li><a href="#"class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
+                    <li><a href="#" class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
                 </ul>
             </div>
         </nav>
@@ -52,8 +54,9 @@
                     <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-yellow-400 text-gradient bg-clip-text bg-gradient-to-r" style="mix-blend-mode: multiply; left: 5%; top: 70%;">Simpsio 2024</h1>
                 </div>
                 <div class="text-right mr-4 mb-4 font-bold">
-                   <button class="absolute bottom-0 right-0 mr-4 mb-4 bg-stone-950 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded">¡ Inscribete Ya !</button>
- 
+                   
+                <button onclick="window.location.href='{{ url('inscribirse') }}'" class="absolute bottom-0 right-0 mr-4 mb-4 bg-stone-950 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded">¡Inscríbete Ya!</button>
+
                 </div>
             </div>
         </div>
@@ -153,9 +156,10 @@
             <h4 class="text-lg font-semibold mb-2">Simposio 2024</h4>
             <ul>
                 <li><a href="#" class="block py-2 hover:text-white"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Evento</a></li>
-                <li><a href="#" class="block py-2 hover:text-white"><img src="icons/ticket.svg" class="inline-block mr-2"  alt="">Inscribirse</a></li>
+                <li><a href="{{url('inscribirse')}}" class="block py-2 hover:text-white"><img src="icons/ticket.svg" class="inline-block mr-2"  alt="">Inscribirse</a></li>
                 <li><a href="#" class="block py-2 hover:text-white"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li>
                 <li><a href="#" class="block py-2 hover:text-white"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li>
+                <li><a href="#" class="block py-2 hover:text-white"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li>
             </ul>
         </div>
         <div class="flex-1 mb-4">
@@ -167,7 +171,8 @@
                 <li class="inline-block mx-2"><a href="#" class="text-gray-300 hover:text-white"><img src="icons/fb.svg" alt=""></a></li>
                 <li class="inline-block mx-2"><a href="#" class="text-gray-300 hover:text-white"><img src="icons/wsp.svg" alt=""></a></li>
                 <li class="inline-block mx-2"><a href="#" class="text-gray-300 hover:text-white"><img src="icons/tw.svg" alt=""></a></li>
-                <!--<li class="inline-block mx-2"><a href="#" class="text-gray-300 hover:text-white"><img src="icons/yt.svg" alt=""></a></li>-->            </ul>
+                <!--<li class="inline-block mx-2"><a href="#" class="text-gray-300 hover:text-white"><img src="icons/yt.svg" alt=""></a></li>-->            
+            </ul>
         </div>
     </div>
 </footer>
