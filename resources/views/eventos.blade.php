@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="icons/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos_eventos.css">
     <title>simposio</title>
     @vite('resources/css/app.css')
 </head>
@@ -18,7 +19,6 @@
                 <h2>UNIVERSIDAD</h2>
                 <h2>MARIANO GALVEZ</h2>
             </div>
-            
             <div class="links lg:block hidden w-1/6 md:w-4/6">
                 <ul class="flex menu text-white-800 items-center justify-center gap-5">
                 <li><a href="{{ url('eventos') }}" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
@@ -42,59 +42,38 @@
                 </ul>
             </div>
         </nav>
-
-</div>
-
-<div class="relative">
-    <img src="images/fondos2.jpg" alt="" class="w-full h-auto">
-    <p class="absolute top-1 text-white bg-black bg-opacity-50 p-4 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-center md:text-left">
-        14 <br> 
-        Septiembre <br> 
-        ___________________________ <br> 
-        UNIVERSIDAD MARIANO <br> 
-        GALVEZ, CAMPUS <br> 
-        QUETZALTENANGO <br> 
-        ___________________________ <br> 
-        2 Avenida Zona 1 <br> 
-        La Esperanza,  Quetzaltenango
-    </p>
-</div>
-
-<div class="bg-gray-800 p-8"></div>
-
-<section class="bg-gray-800  flex  ">
-    <div class="max-w-md mx-auto">
-        
-    <form action="{{url('/ingresar')}}" method="Post" enctype="multipart/form-data" class="bg-yellow-200 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        @csrf
-        <h3 class="text-blue-500 font-bold text-center">INSCRIPCION</h3><br>
-        <div class="mb-4">
-            <input type="text"  name="nombre" class=" div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" required placeholder="Nombre">
-            <input type="text"  name="apellido" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" required placeholder="Apellido">
-            <input type="text"  name="carnet" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Carnet">
-            <input type="email" name="email" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Email">
-            <input type="text"  name="telefono" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Teléfono">
-        </div>
-
-            <div>
-                <input class="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="Submit" value="Ingresar">
+            <div class="header">
+                <div class="super">
+                <div class="contenedor">
+                    <div class="informacion">
+                        <h1>Gran carmel</h1>
+                        <p>Sabado 15 de septiembre ¿Quieres participar?</p>
+                    </div>
+                    <div>
+                        <img class="logo_karmel" src="https://static.wixstatic.com/media/321f5c_e58bd7e9080e4c9d986be4496d5f5c1d~mv2.jpg/v1/crop/x_0,y_0,w_2989,h_2000/fill/w_562,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/321f5c_e58bd7e9080e4c9d986be4496d5f5c1d~mv2.jpg" alt="">
+                    </div>
+                </div>
+            
+                <div class="contenedor_2">
+                    <div class="informacion">
+                        <h1>Conferencias sobre...</h1>
+                        <p>=> Blockchain</p>
+                        <p>=> Ciberseguridad</p>
+                        <p>=> Telecomunicaciones</p>
+                    </div>
+                </div>
             </div>
-        
-    </form>
-
-    </div>
-</section>
- 
+            </div>
+            
 <footer class="bg-gray-900 text-gray-300 py-8">
     <div class="container mx-auto flex flex-wrap justify-between items-center">
         <div class="flex-1 mb-4">
             <h4 class="text-lg font-semibold mb-2">Simposio 2024</h4>
             <ul>
                 <li><a href="#" class="block py-2 hover:text-white"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Evento</a></li>
-                <li><a href="{{url('inscribirse')}}"class="block py-2 hover:text-white"><img src="icons/ticket.svg" class="inline-block mr-2"  alt="">Inscribirse</a></li>
+                <li><a href="#" class="block py-2 hover:text-white"><img src="icons/ticket.svg" class="inline-block mr-2"  alt="">Inscribirse</a></li>
                 <li><a href="#" class="block py-2 hover:text-white"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li>
-                <li><a href="#" class="block py-2 hover:text-white"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li>
-                <li><a href="{{url('/')}}" class="block py-2 hover:text-white"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li>
+                <li><a href="{{ route('login') }}" class="block py-2 hover:text-white"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li>
             </ul>
         </div>
         <div class="flex-1 mb-4">
@@ -119,6 +98,6 @@
 
             menu.classList.toggle('hidden');
         });
-</script>
+    </script>
 </body>
 </html>

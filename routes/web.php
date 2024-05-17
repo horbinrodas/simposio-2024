@@ -8,6 +8,13 @@ use App\Mail\DiplomaEmail;
 use App\Models\Participante;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ParticipanteController;
+use App\Http\Controllers\DiplomaController;
+use App\Mail\ConfirmacionPago;
+use App\Mail\DiplomaEmail;
+use App\Models\Participante;
+use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +46,14 @@ Route::get('/pago/{cod_participante}', function ($cod_participante) {
 });
 
 Route::post('/submit-pago', [ParticipanteController::class, 'storePago'])->name('ingresar.pago');
+Route::get('/eventos', function () {
+    return view('eventos');
+});
 
 //Route::resource('simposio',SimpoController::class);
 route::get('inscribirse',[SimpoController::class,'index']);
 
-//route::post('/ingresar',[SimpoController::class,'ingresar']);
+route::post('/ingresar',[HomeController::class,'ingresar']);
 
 Route::get('/enviar-correo-prueba', function () {
     // Obtener un participante (cualquier método de obtención)
@@ -56,8 +66,23 @@ Route::get('/enviar-correo-prueba', function () {
     return 'No se encontró ningún participante para enviar el correo de prueba.';
 });
 
-Route::get('pago/{codigo}', [SimpoController::class, 'index']);
-
 Route::post('/ingresar', [ParticipanteController::class, 'store'])->name('registrar.participante');
+Route::get('/enviar-correo', [DiplomaController::class, 'mostrarFormularioCorreo'])->name('enviar-correo');
+Route::post('/buscar-carnet', [DiplomaController::class, 'buscarCarnet'])->name('buscar-carnet');
+Route::post('/generar-diploma', [DiplomaController::class, 'generarDiploma'])->name('generar-diploma');
+
+Route::view('login.php', 'login')->name('login');
+Route::view('control.php', 'control')->name('control');
+
+Route::post('/login.php', function(){
+    $datos = request()->only('email', 'password');
+    if(Auth::attempt($datos)){
+        return Redirect::to('/control.php');
+    } 
+    return 'Login Falldidos';
+});
+
+Route::view('eventos.php', 'eventos')->name('eventos');
+
 
 

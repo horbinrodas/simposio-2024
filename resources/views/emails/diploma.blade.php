@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diploma</title>
+<<<<<<< HEAD
+</head>
+<body>
+    <p>Estimado/a {{ $participante->nombre }},</p>
+    <p>Adjunto encontrará su diploma de reconocimiento.</p>
+=======
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,5 +49,6 @@
     <div class="footer">
         <p>© {{ date('Y') }} Simposio 2024. Todos los derechos reservados.</p>
     </div>
+>>>>>>> 872260709f3aaf0dcaf831813dc8062b50333c9b
 </body>
 </html>
