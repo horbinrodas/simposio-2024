@@ -3,12 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SimpoController;
 use App\Http\Controllers\ParticipanteController;
+use App\Livewire\ShowPagos;
 use App\Mail\ConfirmacionPago;
 use App\Mail\DiplomaEmail;
 use App\Models\Participante;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,23 +40,11 @@ Route::get('/pago/{cod_participante}', function ($cod_participante) {
 
 Route::post('/submit-pago', [ParticipanteController::class, 'storePago'])->name('ingresar.pago');
 
+Route::get('/admin', ShowPagos::class);
 //Route::resource('simposio',SimpoController::class);
 route::get('inscribirse',[SimpoController::class,'index']);
 
 //route::post('/ingresar',[SimpoController::class,'ingresar']);
-
-Route::get('/enviar-correo-prueba', function () {
-    // Obtener un participante (cualquier método de obtención)
-    $participante = Participante::first(); 
-    // Verificar si se encontró un participante antes de enviar el correo
-    if ($participante) {
-        // Enviar correo electrónico de confirmación con el participante obtenido
-        Mail::send(new ConfirmacionPago($participante));
-    }
-    return 'No se encontró ningún participante para enviar el correo de prueba.';
-});
-
-Route::get('pago/{codigo}', [SimpoController::class, 'index']);
 
 Route::post('/ingresar', [ParticipanteController::class, 'store'])->name('registrar.participante');
 
