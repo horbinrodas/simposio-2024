@@ -16,4 +16,9 @@ class Participante extends Model
             $participante->codigo_participante = Str::uuid()->toString();
         });
     }
+
+    public function pago()
+    {
+        return $this->hasOne(Pago::class, 'participante_id', 'id');
+    }
 }

@@ -61,24 +61,26 @@
 
 <div class="bg-gray-800 p-8"></div>
 
-<section class="bg-sky-950">
+<section class="bg-gray-800  flex  ">
     <div class="max-w-md mx-auto">
-        <h3 class="text-red-500 font-bold">INSCRIPCION</h3>
-        <form action=""></form>
+        
+    <form action="{{url('/ingresar')}}" method="Post" enctype="multipart/form-data" class="bg-yellow-200 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        @csrf
+        <h3 class="text-blue-500 font-bold text-center">INSCRIPCION</h3><br>
         <div class="mb-4">
-            <label for="nombre" class="block text-blue-50">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="w-full border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-
-            <label for="nombre" class="block text-blue-50">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="w-full border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-        
-            <label for="nombre" class="block text-blue-50">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="w-full border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-        
-            <label for="nombre" class="block text-blue-50">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="w-full border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-        
+            <input type="text"  name="nombre" class=" div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" required placeholder="Nombre">
+            <input type="text"  name="apellido" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" required placeholder="Apellido">
+            <input type="text"  name="carnet" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Carnet">
+            <input type="email" name="email" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Email">
+            <input type="text"  name="telefono" class="div_deg w-64 border-blue-500 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4 text-center" placeholder="Teléfono">
         </div>
+
+            <div>
+                <input class="btn btn-primary bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="Submit" value="Ingresar">
+            </div>
+        
+    </form>
+
     </div>
 </section>
  
