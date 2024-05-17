@@ -17,6 +17,11 @@ class Participante extends Model
         });
     }
 
+    public function pago()
+    {
+        return $this->hasOne(Pago::class, 'participante_id', 'id');
+    }
+
     use HasFactory;
     protected $fillable = ['nombre', 'apellido', 'carnet', 'email', 'telefono'];
 

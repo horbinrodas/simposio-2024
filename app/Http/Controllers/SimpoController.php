@@ -12,21 +12,4 @@ class SimpoController extends Controller
     {
         return view('Inscribirse');
     }
-
-    public function ingresar(Request $request)
-    {
-        $data=new Participante;
-
-        $data->nombre=$request->nombre;
-        $data->apellido=$request->apellido;
-        $data->carnet=$request->carnet;
-        $data->email=$request->email;
-        $data->telefono=$request->telefono;
-
-        $data->save();
-
-        return redirect()->back();
-        
-    }
-
 }
