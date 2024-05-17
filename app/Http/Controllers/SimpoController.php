@@ -18,15 +18,10 @@ class SimpoController extends Controller
         $data=new Participante;
 
         $data->nombre=$request->nombre;
+        $data->apellido=$request->apellido;
+        $data->carnet=$request->carnet;
         $data->email=$request->email;
         $data->telefono=$request->telefono;
-        $data->codigo_qr=$request->codigo_qr;
-
-        if(codigo_qr){
-            $nombreqr=time().'.'.$codigo_qr->getClientOriginalExtension();
-            $request->codigo_qr->move('participante',$nombreqr);
-            $data->codigoqr=$nombreqr;
-        }
 
         $data->save();
 

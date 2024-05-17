@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('carnet')->nullable();
             $table->string('email')->unique();
             $table->string('telefono');
-            $table->string('codigo_participante')->unique();
-            $table->string('carnet')->nullable();
+            $table->string('codigo_participante')->unique()->nullable();
             $table->timestamps();
         });
     }

@@ -16,4 +16,9 @@ class Participante extends Model
             $participante->codigo_participante = Str::uuid()->toString();
         });
     }
+
+    use HasFactory;
+    protected $fillable = ['nombre', 'apellido', 'carnet', 'email', 'telefono'];
+
+    
 }
