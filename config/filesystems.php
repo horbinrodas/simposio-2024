@@ -44,6 +44,26 @@ return [
             'throw' => false,
         ],
 
+        'comprobantes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/comprobantes'),
+            'url' => env('APP_URL').'/storage/comprobantes',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'port' => env('FTP_PORT'),
+            'root' => env('FTP_ROOT'),
+            'passive' => true,
+            'ssl' => true,
+            'timeout' => 30,
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
