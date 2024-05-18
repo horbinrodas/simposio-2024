@@ -21,24 +21,23 @@
             
             <div class="links lg:block hidden w-1/6 md:w-4/6">
                 <ul class="flex menu text-white-800 items-center justify-center gap-5">
-                    <li><a href="#" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
+                    <li><a href="{{ url('eventos') }}" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
                     <li><a href="{{url('inscribirse')}}" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Inscribirse</a></li><br>
-                    <li><a href="#"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
-                    <li><a href="#"class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
-                    <li><a href="#"class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
-                    
-                   </ul>
+                    <li><a href="{{url('contacto')}}"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
+                    <li><a href="{{ route('login') }}" class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
+                    <li><a href="{{ url('/') }}"class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
+                </ul>
             </div>
 
             <div class="block lg:hidden w-1/6 lg:w-4/6">
                 <a href="#" class="link" id="mobile-menu"><img src="icons/menu.svg" class="items-center" alt=""></a>
 
                 <ul class="mobile-links hidden w-full absolute z-50 left-0 text-center bg-sky-900">
-                    <li><a href="#" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
-                    <li><a href="{{url('inscribirse')}}" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Incribirse</a></li><br>
-                    <li><a href="#"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
-                    <li><a href="#"class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
-                    <li><a href="#" class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
+                    <li><a href="{{ url('eventos') }}" class="link"><img src="icons/calendar.svg" class="inline-block mr-2" alt="">Eventos</a></li><br>
+                    <li><a href="{{url('inscribirse')}}" class="link"><img src="icons/ticket.svg" class="inline-block mr-2" alt="">Inscribirse</a></li><br>
+                    <li><a href="{{url('contacto')}}"class="link"><img src="icons/contact.svg" class="inline-block mr-2" alt="">Contacto</a></li><br>
+                    <li><a href="{{ route('login') }}" class="link"><img src="icons/login.svg" class="inline-block mr-2" alt="">Ingresar</a></li><br>
+                    <li><a href="{{ url('/') }}"class="link"><img src="icons/start.svg" class="inline-block mr-2" alt="">Inicio</a></li><br>
                 </ul>
             </div>
         </nav>

@@ -9,19 +9,16 @@ return new class extends Migration
     
     public function up(): void
     {
-        Schema::create('participaciones', function (Blueprint $table) {
+        Schema::create('participacions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('participante_id')->constrained()->onDelete('cascade');
-            $table->foreignId('evento_id')->constrained()->onDelete('cascade');
             $table->dateTime('fecha_hora');
-            $table->integer('puntos')->default(0);
+            $table->integer('puntos')->default(5);
             $table->timestamps();
         });
     }
-
-    
     public function down(): void
     {
-        Schema::dropIfExists('participaciones');
+        Schema::dropIfExists('participacions');
     }
 };

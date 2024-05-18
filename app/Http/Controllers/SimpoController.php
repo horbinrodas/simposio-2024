@@ -12,4 +12,9 @@ class SimpoController extends Controller
     {
         return view('Inscribirse');
     }
+
+    public function contacto()
+    {
+        return view('contacto');
+    }
 }

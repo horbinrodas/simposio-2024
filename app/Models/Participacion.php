@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Participacion extends Model
 {
     use HasFactory;
+
+    public function participante()
+    {
+        return $this->belongsTo(Participante::class, 'id', 'id');
+    }
 }

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diploma</title>
+</head>
+    <p>Estimado/a {{ $participante->nombre }},</p>
+    <p>Adjunto encontrará su diploma de reconocimiento.</p>
     <style>
         body {
             font-family: Arial, sans-serif;

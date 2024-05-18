@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\DiplomaEmail;
-use App\Mail\ConfirmacionPago;
+use App\Mail\ConfirmacionRegistro;
 use App\Models\Participante;
-use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 
 class ParticipanteController extends Controller
 {
@@ -36,13 +32,13 @@ class ParticipanteController extends Controller
                 $participante->save();
 
                 // Enviar el correo electrónico de confirmación
-                Mail::send(new ConfirmacionPago($participante));
+                Mail::send(new ConfirmacionRegistro($participante));
 
                 // Generar y enviar el diploma en formato PDF
                 //$this->generarYEnviarDiploma($participante);
 
                 // Redireccionar si todo ha sido exitoso
-                return redirect()->back()->with('success', '¡Participante registrado exitosamente!');
+                return view('/instrucciones', ['message' => '¡Registro exitoso!']);
             } catch (\Exception $e) {
                 // Manejar cualquier error que pueda ocurrir durante el proceso
                 return redirect()->back()->with('error', $e->getMessage());
@@ -91,7 +87,8 @@ class ParticipanteController extends Controller
                     //Mail::send(new ConfirmacionPago($participante));
 
                     // Redireccionar si todo ha sido exitoso
-                    return view('pago', ['message' => '¡Pago registrado exitosamente!, espere la confirmación de su inscripción.']);
+                    return view('pago', ['message' => '¡Pago registrado exitosamente!, un administrador validara su pago.
+                                                        \n Siga pendiente a su correo electrónico para recibir la confirmación.']);
                 } else {
                     return view('pago', ['message' => 'No se encontró el participante con el código proporcionado.']);
                 }
@@ -102,6 +99,46 @@ class ParticipanteController extends Controller
         }
         // Si no se ha enviado el formulario, redirecciona de vuelta al formulario de inscripción
         return view('pago', ['message' => 'Hubo un problema al procesar el formulario.']);
+    }
 
+    public function storeParticipacion(Request $request)
+    {
+        // Validar los datos de la participación
+        try {
+            $request->validate([
+                'cod_participante' => 'required|string|max:255',
+                'cod_evento' => 'required|string|max:255',
+                'fecha_participacion' => 'required|date',
+            ]);
+        } catch (\Exception $e) {
+            // Handle any error that may occur during the process
+            return view('participacion', ['message' => $e->getMessage()]);
+        }
+
+        // Si se ha enviado el formulario
+        if ($request) {
+            try {
+                // Buscar al participante por su código
+                $participante = Participante::where('codigo_participante', $request->cod_participante)->first();
+                if ($participante) {
+                    // Crear una nueva participación
+                    $participacion = $participante->participacion()->firstOrNew();
+                    $participacion->codigo_evento = $request->cod_evento;
+                    $participacion->fecha_participacion = $request->fecha_participacion;
+                    $participacion->save();
+                    $participante->participacion()->save($participacion);
+
+                    // Redireccionar si todo ha sido exitoso
+                    return view('participacion', ['message' => '¡Participación registrada exitosamente!']);
+                } else {
+                    return view('participacion', ['message' => 'No se encontró el participante con el código proporcionado.']);
+                }
+            } catch (\Exception $e) {
+                // Manejar cualquier error que pueda ocurrir durante el proceso
+                return view('participacion', ['message' => $e->getMessage()]);
+            }
+        }
+        // Si no se ha enviado el formulario, redirecciona de vuelta al formulario de inscripción
+        return view('participacion', ['message' => 'Hubo un problema al procesar el formulario.']);
     }
 }

@@ -19,7 +19,16 @@
         @vite('resources/css/app.css')
     </head>
  
-    <body class="antialiased">
+    <body class="antialiased bg-gray-800">
+        @auth
+            <div class="flex justify-end">
+              <h1 class="text-white">Bienvenido, {{ auth()->user()->name }}</h1>
+              <form action="{{ url('/logout') }}" method="GET">
+                @csrf
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+              </form>
+            </div>
+        @endauth
         {{ $slot }}
  
         @filamentScripts
